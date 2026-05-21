@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spencer's Home Care – Exterior Cleaning Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,500;0,700;1,300;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #2F80C2;
+    --sky-light: #5BA4D8;
+    --sky-dark: #1A5A8A;
+    --cream: #FAF8F4;
+    --charcoal: #1C2329;
+    --mid: #4A5568;
+    --soft: #8FA3B1;
+    --white: #FFFFFF;
+    --accent: #F4A742;
+    --green: #3DAA6E;
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(28,35,41,0.10);
+    --shadow-lg: 0 12px 48px rgba(28,35,41,0.16);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(47,128,194,0.10);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 68px;
+  }
+  .logo-area {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--sky-dark); letter-spacing: -0.02em;
+  }
+  .logo-placeholder {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--sky), var(--sky-dark));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.1rem; font-weight: 700;
+    font-family: 'Fraunces', serif;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.875rem; font-weight: 500;
+    color: var(--mid); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sky); }
+  .nav-cta {
+    background: var(--sky); color: white !important;
+    padding: 0.55rem 1.2rem; border-radius: 8px;
+    font-weight: 600; transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--sky-dark) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #EAF3FB 0%, var(--cream) 55%, #F0F7F4 100%);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 4rem;
+    padding: 120px 8vw 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(47,128,194,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(47,128,194,0.10); color: var(--sky-dark);
+    padding: 0.4rem 0.9rem; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(47,128,194,0.18);
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    font-weight: 700; line-height: 1.12;
+    letter-spacing: -0.03em; color: var(--charcoal);
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--sky); }
+  .hero p {
+    font-size: 1.05rem; color: var(--mid); line-height: 1.7;
+    max-width: 440px; margin-bottom: 2rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--sky); color: white;
+    padding: 0.85rem 2rem; border-radius: 10px;
+    font-size: 0.95rem; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(47,128,194,0.30);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--sky-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(47,128,194,0.35); }
+  .btn-secondary {
+    background: white; color: var(--charcoal);
+    padding: 0.85rem 1.75rem; border-radius: 10px;
+    font-size: 0.95rem; font-weight: 600;
+    text-decoration: none; border: 1.5px solid rgba(28,35,41,0.12); cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-secondary:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,35,41,0.08);
+  }
+  .stat-item { display: flex; flex-direction: column; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 700; color: var(--charcoal); }
+  .stat-label { font-size: 0.78rem; color: var(--soft); font-weight: 500; letter-spacing: 0.03em; margin-top: 2px; }
+
+  .hero-visual {
+    position: relative; display: flex; flex-direction: column; gap: 1rem;
+  }
+  .before-after-card {
+    background: white; border-radius: 18px;
+    box-shadow: var(--shadow-lg); overflow: hidden;
+    position: relative;
+  }
+  .ba-images {
+    display: grid; grid-template-columns: 1fr 1fr;
+    height: 240px; position: relative;
+  }
+  .ba-panel {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-size: 1rem;
+    font-weight: 500; position: relative; overflow: hidden;
+  }
+  .ba-before {
+    background: linear-gradient(135deg, #C8D6DF 0%, #A8B9C4 100%);
+    color: #5A6E78;
+  }
+  .ba-after {
+    background: linear-gradient(135deg, #D4EEF7 0%, #B8DFF2 100%);
+    color: var(--sky-dark);
+  }
+  .ba-divider {
+    position: absolute; left: 50%; top: 0; bottom: 0; width: 3px;
+    background: white; z-index: 2;
+  }
+  .ba-divider-btn {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 32px; height: 32px; border-radius: 50%;
+    background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    z-index: 3; display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; color: var(--sky); font-weight: 700;
+  }
+  .ba-tag {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(0,0,0,0.4); color: white;
+    font-size: 0.7rem; font-weight: 600; padding: 3px 8px;
+    border-radius: 6px; letter-spacing: 0.04em;
+  }
+  .ba-tag.after-tag { left: auto; right: 10px; background: rgba(47,128,194,0.7); }
+  .ba-label {
+    padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .ba-label span { font-size: 0.85rem; color: var(--mid); font-weight: 500; }
+  .ba-label strong { font-size: 0.85rem; color: var(--green); font-weight: 600; }
+
+  .trust-pill {
+    background: white; border-radius: 12px; padding: 14px 18px;
+    box-shadow: var(--shadow); display: flex; align-items: center; gap: 14px;
+    align-self: flex-start;
+  }
+  .stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; }
+  .trust-pill p { font-size: 0.82rem; color: var(--mid); }
+  .trust-pill p strong { color: var(--charcoal); font-weight: 600; }
+
+  /* ── SERVICES ── */
+  .section { padding: 90px 8vw; }
+  .section-label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--sky); text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700; line-height: 1.2;
+    letter-spacing: -0.02em; color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--mid); font-size: 1rem; line-height: 1.65; max-width: 520px; }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .service-card {
+    background: white; border-radius: var(--radius);
+    padding: 2rem; border: 1px solid rgba(28,35,41,0.06);
+    transition: box-shadow 0.25s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--sky), var(--sky-light));
+  }
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: rgba(47,128,194,0.10);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 1.25rem;
+  }
+  .service-card h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.875rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; }
+  .service-time {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.78rem; font-weight: 600; color: var(--sky);
+    background: rgba(47,128,194,0.08); padding: 4px 10px; border-radius: 99px;
+  }
+
+  /* ── BOOKING ── */
+  #booking { background: white; }
+  .booking-layout {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 4rem; align-items: start;
+  }
+  .booking-info h2 { margin-bottom: 1rem; }
+  .booking-steps { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .step {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.1rem 1.25rem; border-radius: 10px;
+    background: var(--cream); border: 1px solid rgba(28,35,41,0.06);
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+  .step.active { border-color: var(--sky); background: rgba(47,128,194,0.05); }
+  .step-num {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--sky); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+  }
+  .step.inactive .step-num { background: rgba(28,35,41,0.12); color: var(--mid); }
+  .step h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 3px; }
+  .step p { font-size: 0.8rem; color: var(--soft); }
+
+  /* Booking Form */
+  .booking-form {
+    background: var(--cream); border-radius: 18px;
+    padding: 2.5rem; border: 1px solid rgba(28,35,41,0.08);
+  }
+  .form-progress {
+    display: flex; gap: 6px; margin-bottom: 2rem;
+  }
+  .progress-dot {
+    flex: 1; height: 4px; border-radius: 99px;
+    background: rgba(28,35,41,0.10); transition: background 0.3s;
+  }
+  .progress-dot.active { background: var(--sky); }
+  .form-page { display: none; }
+  .form-page.active { display: block; }
+  .form-page h3 {
+    font-family: 'Fraunces', serif; font-size: 1.2rem;
+    font-weight: 600; margin-bottom: 0.4rem;
+  }
+  .form-page .step-sub { font-size: 0.82rem; color: var(--soft); margin-bottom: 1.5rem; }
+
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--charcoal); }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 0.75rem 1rem; border-radius: 9px;
+    border: 1.5px solid rgba(28,35,41,0.12); background: white;
+    font-family: 'Sora', sans-serif; font-size: 0.9rem; color: var(--charcoal);
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(47,128,194,0.12);
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .radio-option {
+    position: relative;
+  }
+  .radio-option input[type="radio"] { position: absolute; opacity: 0; }
+  .radio-option label {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; padding: 0.7rem 1rem;
+    border: 1.5px solid rgba(28,35,41,0.12);
+    border-radius: 9px; cursor: pointer; background: white;
+    font-size: 0.85rem; font-weight: 500; color: var(--mid);
+    transition: all 0.2s; text-align: center;
+  }
+  .radio-option input[type="radio"]:checked + label {
+    border-color: var(--sky); color: var(--sky);
+    background: rgba(47,128,194,0.07);
+  }
+
+  .window-type-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.6rem; }
+  .checkbox-option { position: relative; }
+  .checkbox-option input[type="checkbox"] { position: absolute; opacity: 0; }
+  .checkbox-option label {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    padding: 0.75rem 0.5rem; border: 1.5px solid rgba(28,35,41,0.12);
+    border-radius: 9px; cursor: pointer; background: white;
+    font-size: 0.78rem; font-weight: 500; color: var(--mid);
+    transition: all 0.2s; text-align: center;
+  }
+  .checkbox-option input[type="checkbox"]:checked + label {
+    border-color: var(--sky); color: var(--sky);
+    background: rgba(47,128,194,0.07);
+  }
+  .checkbox-option label .icon { font-size: 1.2rem; }
+
+  .time-slots { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.5rem; }
+  .time-slot {
+    padding: 0.6rem; text-align: center;
+    border: 1.5px solid rgba(28,35,41,0.12); border-radius: 8px;
+    cursor: pointer; background: white; font-size: 0.8rem; font-weight: 500; color: var(--mid);
+    transition: all 0.2s; font-family: 'Sora', sans-serif;
+  }
+  .time-slot:hover { border-color: var(--sky); color: var(--sky); }
+  .time-slot.selected { border-color: var(--sky); background: var(--sky); color: white; }
+  .time-slot.unavailable { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+
+  .estimate-box {
+    background: linear-gradient(135deg, rgba(47,128,194,0.08), rgba(47,128,194,0.04));
+    border: 1px solid rgba(47,128,194,0.18); border-radius: 10px;
+    padding: 1rem 1.25rem; margin: 1rem 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .estimate-box span { font-size: 0.85rem; color: var(--mid); }
+  .estimate-box strong { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--sky-dark); }
+
+  .form-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+  .btn-back {
+    background: none; border: 1.5px solid rgba(28,35,41,0.15); color: var(--mid);
+    padding: 0.75rem 1.5rem; border-radius: 9px; cursor: pointer;
+    font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .btn-back:hover { border-color: var(--sky); color: var(--sky); }
+  .btn-next {
+    flex: 1; background: var(--sky); color: white; border: none;
+    padding: 0.85rem 1.5rem; border-radius: 9px; cursor: pointer;
+    font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600;
+    transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-next:hover { background: var(--sky-dark); transform: translateY(-1px); }
+  .btn-next.submit { background: var(--green); }
+  .btn-next.submit:hover { background: #2d8a56; }
+
+  /* Success screen */
+  .success-screen {
+    display: none; text-align: center; padding: 2rem 1rem;
+  }
+  .success-screen.show { display: block; }
+  .success-icon {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: rgba(61,170,110,0.12); border: 2px solid var(--green);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin: 0 auto 1.5rem;
+    animation: popIn 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  }
+  @keyframes popIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .success-screen h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .success-screen p { color: var(--mid); font-size: 0.9rem; line-height: 1.6; }
+
+  /* Calendar mini */
+  .mini-calendar {
+    background: white; border-radius: 10px; padding: 1rem;
+    border: 1px solid rgba(28,35,41,0.08);
+  }
+  .cal-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;
+  }
+  .cal-header span { font-weight: 600; font-size: 0.9rem; }
+  .cal-nav { background: none; border: none; cursor: pointer; color: var(--sky); font-size: 1.1rem; padding: 2px 6px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+  .cal-day-label { text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--soft); padding: 4px 0; letter-spacing: 0.04em; }
+  .cal-day {
+    text-align: center; font-size: 0.8rem; padding: 6px 2px;
+    border-radius: 6px; cursor: pointer; font-weight: 500; transition: all 0.15s;
+  }
+  .cal-day:hover:not(.disabled):not(.empty) { background: rgba(47,128,194,0.12); color: var(--sky); }
+  .cal-day.selected { background: var(--sky); color: white; }
+  .cal-day.today { font-weight: 700; border: 1.5px solid var(--sky); color: var(--sky); }
+  .cal-day.disabled { color: rgba(28,35,41,0.2); cursor: not-allowed; }
+  .cal-day.empty { cursor: default; }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--charcoal); }
+  #gallery .section-label { color: var(--sky-light); }
+  #gallery .section-title { color: white; }
+  #gallery .section-sub { color: rgba(255,255,255,0.55); }
+  .gallery-tabs {
+    display: flex; gap: 0.5rem; margin: 2rem 0 1.5rem;
+  }
+  .gallery-tab {
+    padding: 0.5rem 1.2rem; border-radius: 8px; border: none;
+    font-family: 'Sora', sans-serif; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55);
+  }
+  .gallery-tab.active { background: var(--sky); color: white; }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+  }
+  .gallery-item {
+    border-radius: 12px; overflow: hidden; position: relative;
+    cursor: pointer; group: true;
+  }
+  .gallery-item:first-child { grid-column: span 2; }
+  .gallery-panel {
+    display: grid; grid-template-columns: 1fr 1fr; height: 100%;
+  }
+  .gallery-panel-img {
+    padding: 1.5rem; display: flex; flex-direction: column;
+    justify-content: flex-end; min-height: 200px;
+    position: relative;
+  }
+  .gallery-before { background: linear-gradient(160deg, #8CA0AB 0%, #6A828F 100%); }
+  .gallery-after-blue { background: linear-gradient(160deg, #2F80C2 0%, #1A5A8A 100%); }
+  .gallery-after-green { background: linear-gradient(160deg, #3DAA6E 0%, #2d8a56 100%); }
+  .gallery-before-dark { background: linear-gradient(160deg, #596670 0%, #3E4C55 100%); }
+  .gallery-panel-label {
+    font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.7);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .gallery-panel-desc {
+    font-size: 0.85rem; color: white; font-weight: 500; margin-top: 4px;
+  }
+  .gallery-single {
+    min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.5rem;
+  }
+  .g-after { background: linear-gradient(160deg, var(--sky) 0%, var(--sky-dark) 100%); }
+  .g-before2 { background: linear-gradient(160deg, #7D9099 0%, #5A6E78 100%); }
+  .g-after2 { background: linear-gradient(160deg, #5BA4D8 0%, #2F80C2 100%); }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--cream); }
+  .reviews-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+  .rating-big {
+    display: flex; align-items: center; gap: 1.5rem;
+    background: white; border-radius: 16px; padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+  }
+  .rating-num { font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 700; color: var(--charcoal); line-height: 1; }
+  .rating-stars { display: flex; flex-direction: column; gap: 4px; }
+  .big-stars { color: var(--accent); font-size: 1.2rem; letter-spacing: 3px; }
+  .rating-count { font-size: 0.82rem; color: var(--soft); font-weight: 500; }
+  .platform-badges { display: flex; gap: 0.75rem; }
+  .platform-badge {
+    display: flex; align-items: center; gap: 8px;
+    background: white; border-radius: 10px; padding: 0.6rem 1rem;
+    border: 1px solid rgba(28,35,41,0.08); font-size: 0.82rem; font-weight: 600;
+  }
+  .platform-icon { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: white; }
+  .google-icon { background: #4285F4; }
+  .yelp-icon { background: #D32323; }
+
+  .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .review-card {
+    background: white; border-radius: var(--radius); padding: 1.6rem;
+    border: 1px solid rgba(28,35,41,0.06); transition: box-shadow 0.25s;
+  }
+  .review-card:hover { box-shadow: var(--shadow); }
+  .review-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+  .reviewer { display: flex; align-items: center; gap: 0.75rem; }
+  .reviewer-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; color: white;
+  }
+  .reviewer-name { font-weight: 600; font-size: 0.9rem; }
+  .reviewer-date { font-size: 0.75rem; color: var(--soft); margin-top: 2px; }
+  .review-stars { color: var(--accent); font-size: 0.85rem; }
+  .source-icon { width: 20px; height: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; color: white; }
+  .review-text { font-size: 0.875rem; color: var(--mid); line-height: 1.65; }
+  .review-service {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.72rem; font-weight: 600; color: var(--sky);
+    background: rgba(47,128,194,0.08); padding: 3px 8px; border-radius: 99px; margin-top: 1rem;
+  }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: white; }
+  .how-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; position: relative; }
+  .how-grid::before {
+    content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--sky), transparent);
+    pointer-events: none;
+  }
+  .how-step { text-align: center; padding: 1.5rem 1rem; }
+  .how-num {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sky), var(--sky-dark));
+    color: white; font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.25rem; box-shadow: 0 4px 16px rgba(47,128,194,0.35);
+    position: relative; z-index: 1;
+  }
+  .how-step h4 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .how-step p { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 3.5rem 8vw 2rem;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;
+  }
+  .footer-brand .logo-area { color: white; margin-bottom: 1rem; }
+  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.65; max-width: 240px; }
+  footer h5 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.2rem; }
+  footer a { display: block; font-size: 0.875rem; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 0.6rem; transition: color 0.2s; }
+  footer a:hover { color: white; }
+  .footer-bottom {
+    background: var(--charcoal); padding: 1.2rem 8vw;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+  /* ── FLOATING BOOK ── */
+  .float-book {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99;
+    background: var(--sky); color: white;
+    padding: 0.85rem 1.5rem; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(47,128,194,0.45);
+    font-size: 0.9rem; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: slideUp 0.5s 1s both;
+  }
+  .float-book:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(47,128,194,0.50); }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 100px; }
+    .booking-layout { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:first-child { grid-column: span 2; }
+    .reviews-grid { grid-template-columns: 1fr 1fr; }
+    .how-grid { grid-template-columns: 1fr 1fr; }
+    footer { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:first-child { grid-column: span 1; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    footer { grid-template-columns: 1fr; }
+    .window-type-grid { grid-template-columns: repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-area">
+    <div class="logo-placeholder">S</div>
+    Spencer's Home Care
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#booking" class="nav-cta">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🏠 Serving the Treasure Valley & Beyond</div>
+    <h1>Your home, <em>brilliantly</em> clean. Outside.</h1>
+    <p>Professional exterior cleaning — pressure washing, window cleaning, gutter cleaning, and more. Book in minutes, just like a haircut.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary">📅 Book a Cleaning</a>
+      <a href="#gallery" class="btn-secondary">View Before & After</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">Homes Cleaned</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">4.9★</span>
+        <span class="stat-label">Avg. Rating</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5yr</span>
+        <span class="stat-label">In Business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="before-after-card">
+      <div class="ba-images">
+        <div class="ba-panel ba-before">
+          <span class="ba-tag">BEFORE</span>
+          <span style="font-size:3rem;opacity:0.3">🏚</span>
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-divider-btn">↔</div>
+        <div class="ba-panel ba-after">
+          <span class="ba-tag after-tag">AFTER</span>
+          <span style="font-size:3rem;opacity:0.5">🏡</span>
+        </div>
+      </div>
+      <div class="ba-label">
+        <span>Window + Pressure Wash · 2-story home · 3 hrs</span>
+        <strong>✓ Same Day</strong>
+      </div>
+    </div>
+    <div class="trust-pill">
+      <div>
+        <div class="stars">★★★★★</div>
+        <p><strong>4.9 out of 5</strong> from 180+ reviews<br>on Google & Yelp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Every exterior service<br>your home needs</div>
+  <p class="section-sub">From grimy driveways to sparkling windows, we handle it all. Estimated times shown are for an average single-story home.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🪟</div>
+      <h3>Window Cleaning</h3>
+      <p>Interior & exterior window cleaning, screen cleaning, and track detailing. We handle standard, double-hung, casement, sliding, bay, and skylights.</p>
+      <span class="service-time">⏱ 1–3 hrs</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💧</div>
+      <h3>Pressure Washing</h3>
+      <p>Driveways, siding, decks, patios, fences, and more. Soft-wash option available for painted surfaces and delicate materials.</p>
+      <span class="service-time">⏱ 2–4 hrs</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🍂</div>
+      <h3>Gutter Cleaning</h3>
+      <p>Full gutter flush and debris removal. We inspect for clogs, downspout blockages, and leave your gutters flowing like new.</p>
+      <span class="service-time">⏱ 1–2 hrs</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>House Washing</h3>
+      <p>Full exterior soft wash removes mildew, algae, and years of grime from your siding — without damaging paint or surfaces.</p>
+      <span class="service-time">⏱ 2–5 hrs</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">☀️</div>
+      <h3>Solar Panel Cleaning</h3>
+      <p>Maximize your solar efficiency with a professional clean. Dirty panels can lose up to 25% of their output — we fix that.</p>
+      <span class="service-time">⏱ 1–2 hrs</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧹</div>
+      <h3>Deck & Patio Cleaning</h3>
+      <p>Restore your outdoor living space. We pressure wash, treat, and brighten wood, composite, and concrete surfaces.</p>
+      <span class="service-time">⏱ 1.5–3 hrs</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div style="text-align:center; max-width:600px; margin:0 auto;">
+    <div class="section-label">Simple as a Haircut</div>
+    <div class="section-title">Ready in 4 steps</div>
+    <p class="section-sub" style="margin:0 auto;">No phone tag, no waiting on hold. Pick your service, tell us about your home, choose a time — done.</p>
+  </div>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <h4>Choose Your Service</h4>
+      <p>Pick what needs cleaning — windows, pressure wash, gutters, or combine services for a bundle deal.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <h4>Tell Us About Your Home</h4>
+      <p>Number of stories, windows, window types, and how long since your last clean. Takes 2 minutes.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <h4>Pick a Date & Time</h4>
+      <p>See real-time availability. Morning or afternoon slots available 7 days a week.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">4</div>
+      <h4>We Show Up & Clean</h4>
+      <p>Our team arrives on time, does the job right, and you get a text when we're done. That's it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section" id="booking">
+  <div class="booking-layout">
+    <div class="booking-info">
+      <div class="section-label">Book a Cleaning</div>
+      <h2 class="section-title">Schedule in minutes</h2>
+      <p class="section-sub">Tell us about your home and pick a time that works. Instant confirmation, no surprises.</p>
+      <div class="booking-steps">
+        <div class="step active" onclick="goToStep(1)">
+          <div class="step-num">1</div>
+          <div><h4>Your Home Details</h4><p>Stories, windows, location</p></div>
+        </div>
+        <div class="step inactive" id="step2-nav" onclick="goToStep(2)">
+          <div class="step-num">2</div>
+          <div><h4>Service Details</h4><p>Window types, last cleaned</p></div>
+        </div>
+        <div class="step inactive" id="step3-nav" onclick="goToStep(3)">
+          <div class="step-num">3</div>
+          <div><h4>Pick a Date & Time</h4><p>Real-time availability</p></div>
+        </div>
+        <div class="step inactive" id="step4-nav" onclick="goToStep(4)">
+          <div class="step-num">4</div>
+          <div><h4>Confirm & Book</h4><p>Your info & confirmation</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-form">
+      <div class="form-progress">
+        <div class="progress-dot active" id="p1"></div>
+        <div class="progress-dot" id="p2"></div>
+        <div class="progress-dot" id="p3"></div>
+        <div class="progress-dot" id="p4"></div>
+      </div>
+
+      <!-- PAGE 1: Home Info -->
+      <div class="form-page active" id="fp1">
+        <h3>Tell us about your home</h3>
+        <p class="step-sub">This helps us estimate time and price accurately.</p>
+
+        <div class="form-group">
+          <label>Service Address</label>
+          <input type="text" placeholder="123 Main St, Boise, ID 83701" />
+        </div>
+        <div class="form-group">
+          <label>How many stories is your home?</label>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="stories" id="s1" value="1"><label for="s1">🏠 1 Story</label></div>
+            <div class="radio-option"><input type="radio" name="stories" id="s2" value="2"><label for="s2">🏢 2 Stories</label></div>
+            <div class="radio-option"><input type="radio" name="stories" id="s3" value="3"><label for="s3">🏗 3 Stories</label></div>
+            <div class="radio-option"><input type="radio" name="stories" id="s4" value="other"><label for="s4">📐 Other</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Approximate number of windows</label>
+          <select>
+            <option value="">Select range...</option>
+            <option>1–5 windows</option>
+            <option>6–10 windows</option>
+            <option>11–15 windows</option>
+            <option>16–20 windows</option>
+            <option>20+ windows</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What service(s) do you need?</label>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="svc" id="sv1"><label for="sv1">🪟 Windows</label></div>
+            <div class="radio-option"><input type="radio" name="svc" id="sv2"><label for="sv2">💧 Pressure Wash</label></div>
+            <div class="radio-option"><input type="radio" name="svc" id="sv3"><label for="sv3">🍂 Gutters</label></div>
+            <div class="radio-option"><input type="radio" name="svc" id="sv4"><label for="sv4">✨ Bundle</label></div>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-next" onclick="nextStep(1)">Continue <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- PAGE 2: Window types / Last cleaned -->
+      <div class="form-page" id="fp2">
+        <h3>Window & service details</h3>
+        <p class="step-sub">Select all window types you have so we bring the right equipment.</p>
+        <div class="form-group">
+          <label>Window types (select all that apply)</label>
+          <div class="window-type-grid">
+            <div class="checkbox-option"><input type="checkbox" id="wt1"><label for="wt1"><span class="icon">🔲</span>Standard Double-Hung</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="wt2"><label for="wt2"><span class="icon">🪟</span>Casement / Awning</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="wt3"><label for="wt3"><span class="icon">📐</span>Bay / Bow</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="wt4"><label for="wt4"><span class="icon">↔️</span>Sliding</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="wt5"><label for="wt5"><span class="icon">🌤</span>Skylight</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="wt6"><label for="wt6"><span class="icon">🪞</span>Picture / Fixed</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>How long since your last exterior cleaning?</label>
+          <select>
+            <option value="">Select...</option>
+            <option>Less than 6 months</option>
+            <option>6–12 months</option>
+            <option>1–2 years</option>
+            <option>2–3 years</option>
+            <option>3+ years (may need extra time)</option>
+            <option>Never / Not sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Any notes or special requests?</label>
+          <textarea placeholder="e.g. hard water stains, construction residue, hard-to-reach skylights..."></textarea>
+        </div>
+        <div class="estimate-box">
+          <span>⏱ Estimated job time</span>
+          <strong>2–4 hours</strong>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="prevStep(2)">← Back</button>
+          <button class="btn-next" onclick="nextStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- PAGE 3: Date + Time -->
+      <div class="form-page" id="fp3">
+        <h3>Pick a date & time</h3>
+        <p class="step-sub">Select an available slot below. We're open 7 days a week.</p>
+        <div class="mini-calendar" id="calendar"></div>
+        <div class="form-group" style="margin-top:1.2rem;">
+          <label>Available time slots</label>
+          <div class="time-slots">
+            <button class="time-slot" onclick="selectTime(this)">7:00 AM</button>
+            <button class="time-slot" onclick="selectTime(this)">8:00 AM</button>
+            <button class="time-slot unavailable">9:00 AM</button>
+            <button class="time-slot" onclick="selectTime(this)">10:00 AM</button>
+            <button class="time-slot unavailable">11:00 AM</button>
+            <button class="time-slot" onclick="selectTime(this)">1:00 PM</button>
+            <button class="time-slot" onclick="selectTime(this)">2:00 PM</button>
+            <button class="time-slot unavailable">3:00 PM</button>
+            <button class="time-slot" onclick="selectTime(this)">4:00 PM</button>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="prevStep(3)">← Back</button>
+          <button class="btn-next" onclick="nextStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- PAGE 4: Confirm -->
+      <div class="form-page" id="fp4">
+        <h3>Confirm your booking</h3>
+        <p class="step-sub">Almost done! Just fill in your contact info and we'll send a confirmation.</p>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="John Smith" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(208) 555-0100" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@email.com" />
+        </div>
+        <div class="estimate-box">
+          <span>📅 Selected Date & Time</span>
+          <strong id="booking-summary">Not selected</strong>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="prevStep(4)">← Back</button>
+          <button class="btn-next submit" onclick="submitBooking()">✅ Confirm Booking</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="success-screen" id="success">
+        <div class="success-icon">✅</div>
+        <h3>Booking Confirmed!</h3>
+        <p>You'll receive a text and email confirmation shortly.<br><br>Our team will see you soon — expect a reminder the evening before. <strong>Thank you for choosing Spencer's Home Care!</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="section-label">Before & After</div>
+  <div class="section-title" style="color:white;">The Spencer's difference</div>
+  <p class="section-sub">Real results from real homes. Tap any image to see the full transformation.</p>
+  <div class="gallery-tabs">
+    <button class="gallery-tab active">All</button>
+    <button class="gallery-tab">Windows</button>
+    <button class="gallery-tab">Pressure Wash</button>
+    <button class="gallery-tab">Gutters</button>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item" style="border-radius:14px;overflow:hidden;">
+      <div class="gallery-panel" style="height:260px;">
+        <div class="gallery-panel-img gallery-before">
+          <div class="gallery-panel-label">Before</div>
+          <div class="gallery-panel-desc">Decade of grime on siding & windows</div>
+        </div>
+        <div class="gallery-panel-img gallery-after-blue">
+          <div class="gallery-panel-label">After</div>
+          <div class="gallery-panel-desc">Full house wash + window clean · 4 hrs</div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item" style="border-radius:14px;overflow:hidden;">
+      <div class="gallery-single g-before2">
+        <div class="gallery-panel-label">Before – Driveway</div>
+        <div class="gallery-panel-desc" style="color:white;">Oil stains, moss, years of buildup</div>
+      </div>
+    </div>
+    <div class="gallery-item" style="border-radius:14px;overflow:hidden;">
+      <div class="gallery-single g-after">
+        <div class="gallery-panel-label">After – Driveway</div>
+        <div class="gallery-panel-desc" style="color:white;">Pressure washed · Looks brand new</div>
+      </div>
+    </div>
+    <div class="gallery-item" style="border-radius:14px;overflow:hidden;">
+      <div class="gallery-panel" style="height:220px;">
+        <div class="gallery-panel-img gallery-before-dark">
+          <div class="gallery-panel-label">Before</div>
+          <div class="gallery-panel-desc">Clogged gutters · 3+ yrs</div>
+        </div>
+        <div class="gallery-panel-img gallery-after-green">
+          <div class="gallery-panel-label">After</div>
+          <div class="gallery-panel-desc">Gutters flushed clear · 1.5 hrs</div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item" style="border-radius:14px;overflow:hidden; grid-column:span 2;">
+      <div class="gallery-panel" style="height:220px;">
+        <div class="gallery-panel-img gallery-before">
+          <div class="gallery-panel-label">Before</div>
+          <div class="gallery-panel-desc">Skylights + bay windows · hard water staining</div>
+        </div>
+        <div class="gallery-panel-img gallery-after-blue">
+          <div class="gallery-panel-label">After</div>
+          <div class="gallery-panel-desc">Crystal clear · 2-story · 3 hrs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="#booking" class="btn-primary" style="display:inline-flex;">📅 Book Your Clean Today</a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="reviews-header">
+    <div>
+      <div class="section-label">Reviews</div>
+      <div class="section-title">What homeowners say</div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+      <div class="rating-big">
+        <div class="rating-num">4.9</div>
+        <div class="rating-stars">
+          <div class="big-stars">★★★★★</div>
+          <div class="rating-count">180+ reviews</div>
+        </div>
+      </div>
+      <div class="platform-badges" style="flex-direction:column;gap:0.5rem;">
+        <div class="platform-badge"><div class="platform-icon google-icon">G</div> Google · 4.9★</div>
+        <div class="platform-badge"><div class="platform-icon yelp-icon">Y</div> Yelp · 4.8★</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-header">
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:#4285F4;">M</div>
+          <div>
+            <div class="reviewer-name">Mike T.</div>
+            <div class="reviewer-date">2 weeks ago</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+          <div class="review-stars">★★★★★</div>
+          <div class="source-icon google-icon">G</div>
+        </div>
+      </div>
+      <p class="review-text">"Booked online in literally 3 minutes. The crew showed up on time, cleaned every window in my 2-story home, and I couldn't believe the difference. Scheduling was as easy as booking a haircut — exactly what they promise."</p>
+      <div class="review-service">🪟 Window Cleaning</div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:#D32323;">S</div>
+          <div>
+            <div class="reviewer-name">Sarah K.</div>
+            <div class="reviewer-date">1 month ago</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+          <div class="review-stars">★★★★★</div>
+          <div class="source-icon yelp-icon">Y</div>
+        </div>
+      </div>
+      <p class="review-text">"Our driveway had years of oil stains and I was ready to replace it. Spencer's pressure washed it and it looks completely new. Saved us thousands. Worth every penny — highly recommend the full exterior package."</p>
+      <div class="review-service">💧 Pressure Washing</div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:#3DAA6E;">R</div>
+          <div>
+            <div class="reviewer-name">Rachel B.</div>
+            <div class="reviewer-date">3 weeks ago</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+          <div class="review-stars">★★★★★</div>
+          <div class="source-icon google-icon">G</div>
+        </div>
+      </div>
+      <p class="review-text">"Five stars isn't enough. They cleaned gutters that hadn't been touched in 4 years — no judgment, just got it done fast and right. The online booking showing estimated times is genius. I knew exactly what to expect."</p>
+      <div class="review-service">🍂 Gutter Cleaning</div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:#F4A742;">D</div>
+          <div>
+            <div class="reviewer-name">David L.</div>
+            <div class="reviewer-date">6 weeks ago</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+          <div class="review-stars">★★★★★</div>
+          <div class="source-icon google-icon">G</div>
+        </div>
+      </div>
+      <p class="review-text">"Used them for a full house wash before listing our home for sale. Realtor said it looked like a different house — helped us get asking price. Professional, punctual, and reasonably priced. Will use every spring."</p>
+      <div class="review-service">🏠 House Washing</div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:#8B5CF6;">J</div>
+          <div>
+            <div class="reviewer-name">Jennifer M.</div>
+            <div class="reviewer-date">2 months ago</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+          <div class="review-stars">★★★★★</div>
+          <div class="source-icon yelp-icon">Y</div>
+        </div>
+      </div>
+      <p class="review-text">"I was nervous about someone working on my skylights but the team was incredibly careful. Everything is streak-free and sparkling. They even told me the estimated time upfront — they finished right on schedule."</p>
+      <div class="review-service">🪟 Window Cleaning</div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:#EC4899;">A</div>
+          <div>
+            <div class="reviewer-name">Amanda P.</div>
+            <div class="reviewer-date">1 month ago</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+          <div class="review-stars">★★★★★</div>
+          <div class="source-icon google-icon">G</div>
+        </div>
+      </div>
+      <p class="review-text">"Booked a bundle — windows + pressure wash + gutters for our 2-story. The crew was done in 5 hours and my house looks better than when we bought it. The before and after is truly remarkable. I recommend them to everyone."</p>
+      <div class="review-service">✨ Full Bundle</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo-area" style="margin-bottom:0.8rem;">
+      <div class="logo-placeholder">S</div>
+      Spencer's Home Care
+    </div>
+    <p>Professional exterior cleaning services. We make your home look its absolute best — guaranteed.</p>
+  </div>
+  <div>
+    <h5>Services</h5>
+    <a href="#services">Window Cleaning</a>
+    <a href="#services">Pressure Washing</a>
+    <a href="#services">Gutter Cleaning</a>
+    <a href="#services">House Washing</a>
+    <a href="#services">Solar Panels</a>
+  </div>
+  <div>
+    <h5>Company</h5>
+    <a href="#gallery">Before & After</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#how">How It Works</a>
+    <a href="#booking">Book Now</a>
+  </div>
+  <div>
+    <h5>Contact</h5>
+    <a href="tel:2085550100">(208) 555-0100</a>
+    <a href="mailto:hello@spencershomecare.com">hello@spencershomecare.com</a>
+    <a href="#">Serving Boise, Meridian,<br>Nampa & Treasure Valley</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 Spencer's Home Care. All rights reserved.</p>
+  <p>Licensed & Insured</p>
+</div>
+
+<!-- FLOATING BOOK BUTTON -->
+<a href="#booking" class="float-book">📅 Book a Cleaning</a>
+
+<script>
+  // ─── BOOKING FORM LOGIC ───
+  let currentStep = 1;
+  let selectedDate = null;
+  let selectedTime = null;
+
+  function updateProgress(step) {
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById('p'+i).classList.toggle('active', i <= step);
+    }
+    const navIds = ['step2-nav','step3-nav','step4-nav'];
+    const steps = document.querySelectorAll('.booking-steps .step');
+    steps.forEach((s,i) => {
+      s.classList.toggle('active', i === step-1);
+      s.classList.toggle('inactive', i !== step-1);
+      if(i < step-1) s.classList.remove('inactive');
+    });
+  }
+
+  function goToStep(step) {
+    if(step > currentStep) return;
+    showStep(step);
+  }
+
+  function showStep(step) {
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById('fp'+i).classList.toggle('active', i === step);
+    }
+    currentStep = step;
+    updateProgress(step);
+  }
+
+  function nextStep(from) {
+    if(from < 4) showStep(from+1);
+  }
+  function prevStep(from) {
+    if(from > 1) showStep(from-1);
+  }
+
+  function selectTime(btn) {
+    document.querySelectorAll('.time-slot').forEach(t => t.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedTime = btn.textContent;
+    updateBookingSummary();
+  }
+
+  function updateBookingSummary() {
+    const s = document.getElementById('booking-summary');
+    if(selectedDate && selectedTime) {
+      s.textContent = selectedDate + ' at ' + selectedTime;
+    } else if(selectedDate) {
+      s.textContent = selectedDate + ' — pick a time';
+    } else if(selectedTime) {
+      s.textContent = selectedTime + ' — pick a date';
+    } else {
+      s.textContent = 'Not selected';
+    }
+  }
+
+  function submitBooking() {
+    document.getElementById('fp4').style.display = 'none';
+    document.querySelector('.form-progress').style.display = 'none';
+    document.getElementById('success').classList.add('show');
+  }
+
+  // ─── MINI CALENDAR ───
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const days = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+  let calYear = new Date().getFullYear();
+  let calMonth = new Date().getMonth();
+  const today = new Date();
+
+  function buildCalendar() {
+    const cal = document.getElementById('calendar');
+    const firstDay = new Date(calYear, calMonth, 1).getDay();
+    const daysInMonth = new Date(calYear, calMonth+1, 0).getDate();
+
+    let html = `<div class="cal-header">
+      <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
+      <span>${months[calMonth]} ${calYear}</span>
+      <button class="cal-nav" onclick="changeMonth(1)">›</button>
+    </div><div class="cal-grid">`;
+
+    days.forEach(d => { html += `<div class="cal-day-label">${d}</div>`; });
+    for(let i=0;i<firstDay;i++) html += `<div class="cal-day empty"></div>`;
+
+    for(let d=1; d<=daysInMonth; d++) {
+      const date = new Date(calYear, calMonth, d);
+      const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      const isSun = date.getDay() === 0;
+      const isToday = date.toDateString() === today.toDateString();
+      const cls = isPast ? 'disabled' : isToday ? 'today' : '';
+      const label = `${months[calMonth].slice(0,3)} ${d}`;
+      if(!isPast && !isSun) {
+        html += `<div class="cal-day ${cls}" onclick="selectCalDay(this,'${label}')">${d}</div>`;
+      } else {
+        html += `<div class="cal-day disabled">${d}</div>`;
+      }
+    }
+
+    html += '</div>';
+    cal.innerHTML = html;
+  }
+
+  function changeMonth(dir) {
+    calMonth += dir;
+    if(calMonth < 0) { calMonth = 11; calYear--; }
+    if(calMonth > 11) { calMonth = 0; calYear++; }
+    buildCalendar();
+  }
+
+  function selectCalDay(el, label) {
+    document.querySelectorAll('.cal-day').forEach(d => d.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedDate = label;
+    updateBookingSummary();
+  }
+
+  buildCalendar();
+
+  // ─── GALLERY TABS ───
+  document.querySelectorAll('.gallery-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
